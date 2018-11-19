@@ -9,8 +9,6 @@ node {
         mvnHome = tool 'M3'
     }
     stage('Build') {
-        steps {
-            sh "'${mvnHome}/bin/mvn' -B -DskipTests clean deploy"
-        }
+        sh "'${mvnHome}/bin/mvn' -B -DskipTests clean deploy"
     }
 }
