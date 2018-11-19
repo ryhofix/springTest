@@ -1,6 +1,8 @@
-FROM tomcat:8.0.20-jre8
+FROM postgres AS donor
+ENV PGDATA=/pgdata
+COPY init.sql /docker-entrypoint-initdb.d/
+RUN /docker-entrypoint.sh --help
 
-COPY target/springTest-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/spring.war
-ENV JAVA_OPTS="-Dspring.profiles.active=docker"
-
-EXPOSE 8080
+FROM postgres
+ENV PGDATA=/pgdata
+COPY --chown=postgres:postgres --from=donor /pgdata /pgdata

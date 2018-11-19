@@ -9,34 +9,23 @@ services:
       - "traefik.frontend.rule=Host:spring.docker.localhost"
   postgres:
     image: postgres
+    privileged: true
     ports:
       - '5432:5432'
     volumes:
       - 'db:/var/lib/postgresql/data'
     labels:
       - "traefik.frontend.rule=Host:postgres.docker.localhost"
-  nexus:
-    image: sonatype/nexus3
-    ports:
-      - '8083:8083'
-    volumes:
-      - 'nd:/nexus-data'
-    labels:
-      - "traefik.frontend.rule=Host:nexus.docker.localhost"
-  git:
-    image: gitlab/gitlab-runner
-    labels:
-    - "traefik.frontend.rule=Host:git.docker.localhost"
-  jenkins:
-    image: jenkinsci/blueocean
-    user: root
+#  dbtest:
+#    image: 8deb96e5a73a
 #    privileged: true
-    volumes:
-      - jenkins:/var/jenkins_home
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /home/masa:/home
-    labels:
-      - "traefik.frontend.rule=Host:jenkins.docker.localhost"
+##    build:
+##      context: .
+##      dockerfile: Dockerfile-dbx
+#    ports:
+#    - '15432:5432'
+#    labels:
+#    - "traefik.frontend.rule=Host:dbtest.docker.localhost"
   traefik:
     image: traefik
     command: --api --docker
@@ -51,7 +40,4 @@ services:
 volumes:
   db:
     external: true
-  nd:
-  jenkins:
-  iq-data:
-version: '3.3'
+version: '3.4'
