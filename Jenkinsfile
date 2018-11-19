@@ -9,6 +9,10 @@ node {
         mvnHome = tool 'M3'
     }
     stage('Build') {
-        sh "'${mvnHome}/bin/mvn' -B -DskipTests clean deploy"
+        configFileProvider([configFile(fileId: 'mvn_nexus', variable: 'MAVEN_SETTINGS')]) {
+            // some block
+            sh "'${mvnHome}/bin/mvn' -s $MAVEN_SETTINGS -B -DskipTests clean deploy"
+        }
+
     }
 }
