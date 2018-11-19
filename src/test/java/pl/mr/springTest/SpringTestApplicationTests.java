@@ -9,11 +9,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class SpringTestApplicationTests {
 
-	@Test
-	public void contextLoads() {
-		System.out.println(02777 & 07777);
-		System.out.println(0777 & 07777);
-		System.out.println(02777);
-	}
+//	@Test
+//	public void contextLoads() {
+//		System.out.println(02777 & 07777);
+//		System.out.println(0777 & 07777);
+//		System.out.println(02777);
+//	}
 
 }
