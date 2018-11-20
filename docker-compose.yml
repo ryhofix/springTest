@@ -18,6 +18,8 @@ services:
       - 'db:/var/lib/postgresql/data'
     labels:
       - "traefik.frontend.rule=Host:postgres.jen.local"
+    networks:
+      - proxynet
 #  dbtest:
 #    image: 8deb96e5a73a
 ##    build:
