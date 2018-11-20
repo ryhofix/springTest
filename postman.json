@@ -12,12 +12,12 @@
 					"listen": "test",
 					"script": {
 						"id": "b31228fc-abd5-406f-b96d-2be033234508",
-						"type": "text/javascript",
 						"exec": [
 							"pm.test(\"Body matches string\", function () {",
 							"    pm.expect(pm.response.text()).to.include(\"Jan | Kowal\");",
 							"});"
-						]
+						],
+						"type": "text/javascript"
 					}
 				}
 			],
@@ -28,9 +28,10 @@
 				"url": {
 					"raw": "172.20.0.3:8080/spring/add/Jan/Kowal",
 					"host": [
-						"spring",
-						"docker",
-						"localhost"
+						"172",
+						"20",
+						"0",
+						"3"
 					],
 					"port": "8080",
 					"path": [
