@@ -44,4 +44,4 @@ volumes:
 networks:
   proxynet:
     name: scripts_default
-version: '3.4'
+version: '3.5'
