@@ -6,7 +6,7 @@ services:
     depends_on:
       - postgres
     labels:
-      - "traefik.frontend.rule=Host:spring.jen.local"
+      - "traefik.frontend.rule=Host:spring.docker.localhost"
     networks:
       - proxynet
   postgres:
@@ -17,7 +17,7 @@ services:
     volumes:
       - 'db:/var/lib/postgresql/data'
     labels:
-      - "traefik.frontend.rule=Host:postgres.jen.local"
+      - "traefik.frontend.rule=Host:postgres.docker.localhost"
     networks:
       - proxynet
 #  dbtest:
