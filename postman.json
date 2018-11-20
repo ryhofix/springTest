@@ -26,9 +26,11 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "spring:8080/spring/add/Jan/Kowal",
+					"raw": "spring.jen.local:8080/spring/add/Jan/Kowal",
 					"host": [
-						"spring"
+						"spring",
+						"jen",
+						"local"
 					],
 					"port": "8080",
 					"path": [
