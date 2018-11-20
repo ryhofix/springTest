@@ -7,6 +7,8 @@ services:
       - postgres
     labels:
       - "traefik.frontend.rule=Host:spring.jen.local"
+    networks:
+      - proxynet
   postgres:
     image: postgres
     privileged: true
@@ -25,18 +27,21 @@ services:
 #    - '15432:5432'
 #    labels:
 #    - "traefik.frontend.rule=Host:dbtest.docker.localhost"
-  traefik:
-    image: traefik
-    command: --api --docker
-    ports:
-    - "180:80"
-    - "1443:443"
-    volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
-    labels:
-    - "traefik.port=8080"
-    - "traefik.frontend.rule=Host:traefik.jen.local"
+#  traefik:
+#    image: traefik
+#    command: --api --docker
+#    ports:
+#    - "180:80"
+#    - "1443:443"
+#    volumes:
+#    - /var/run/docker.sock:/var/run/docker.sock
+#    labels:
+#    - "traefik.port=8080"
+#    - "traefik.frontend.rule=Host:traefik.jen.local"
 volumes:
   db:
     external: true
+networks:
+  proxynet:
+    name: scripts_default
 version: '3.4'
