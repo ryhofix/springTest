@@ -6,7 +6,7 @@ services:
     depends_on:
       - postgres
     labels:
-      - "traefik.frontend.rule=Host:spring.docker.localhost"
+      - "traefik.frontend.rule=Host:spring.jen.local"
   postgres:
     image: postgres
     privileged: true
@@ -15,7 +15,7 @@ services:
     volumes:
       - 'db:/var/lib/postgresql/data'
     labels:
-      - "traefik.frontend.rule=Host:postgres.docker.localhost"
+      - "traefik.frontend.rule=Host:postgres.jen.local"
 #  dbtest:
 #    image: 8deb96e5a73a
 ##    build:
@@ -25,17 +25,17 @@ services:
 #    - '15432:5432'
 #    labels:
 #    - "traefik.frontend.rule=Host:dbtest.docker.localhost"
-#  traefik:
-#    image: traefik
-#    command: --api --docker
-#    ports:
-#    - "180:80"
-#    - "1443:443"
-#    volumes:
-#    - /var/run/docker.sock:/var/run/docker.sock
-#    labels:
-#    - "traefik.port=8080"
-#    - "traefik.frontend.rule=Host:traefik.jen.local"
+  traefik:
+    image: traefik
+    command: --api --docker
+    ports:
+    - "180:80"
+    - "1443:443"
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+    - "traefik.port=8080"
+    - "traefik.frontend.rule=Host:traefik.jen.local"
 volumes:
   db:
     external: true
