@@ -26,13 +26,12 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "spring.jen.local:8080/spring/add/Jan/Kowal",
+					"raw": "spring.docker.localhost/spring/add/Jan/Kowal",
 					"host": [
 						"spring",
-						"jen",
-						"local"
+						"docker",
+						"localhost"
 					],
-					"port": "8080",
 					"path": [
 						"spring",
 						"add",
