@@ -14,7 +14,7 @@
 						"id": "b31228fc-abd5-406f-b96d-2be033234508",
 						"exec": [
 							"pm.test(\"Body matches string\", function () {",
-							"    pm.expect(pm.response.text()).to.include(\"Jan | Kowal\");",
+							"    pm.expect(pm.response.text()).to.include(\"Marek | Nowak\");",
 							"});"
 						],
 						"type": "text/javascript"
