@@ -3,6 +3,6 @@ ENV PGDATA=/pgdata
 COPY init.sql /docker-entrypoint-initdb.d/
 RUN /docker-entrypoint.sh --help
 
-FROM postgres
+FROM postgres AS main
 ENV PGDATA=/pgdata
 COPY --chown=postgres:postgres --from=donor /pgdata /pgdata
