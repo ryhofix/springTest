@@ -41,9 +41,9 @@ services:
 #    labels:
 #    - "traefik.port=8080"
 #    - "traefik.frontend.rule=Host:traefik.jen.local"
-volumes:
-  db:
-    external: true
+#volumes:
+#  db:
+#    external: true
 networks:
   proxynet:
     name: scripts_default
