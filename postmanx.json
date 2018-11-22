@@ -1,0 +1,45 @@
+{
+	"info": {
+		"_postman_id": "a2532056-447b-4b16-95af-235877b1212d",
+		"name": "sprintTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b31228fc-abd5-406f-b96d-2be033234508",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Jan | Kowal\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "spring:8080/spring/add/Jan/Kowal",
+					"host": [
+						"spring"
+					],
+					"port": "8080",
+					"path": [
+						"spring",
+						"add",
+						"Jan",
+						"Kowal"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
