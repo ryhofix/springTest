@@ -1,6 +1,6 @@
 FROM postgres AS donor
 ENV PGDATA=/pgdata
-COPY init.sql /docker-entrypoint-initdb.d/
+COPY first.sql /docker-entrypoint-initdb.d/
 RUN /docker-entrypoint.sh --help
 
 FROM postgres AS main

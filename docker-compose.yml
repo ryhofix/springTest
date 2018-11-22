@@ -10,7 +10,10 @@ services:
     networks:
       - proxynet
   postgres:
-    image: postgres
+    build:
+      target: main
+      context: .
+      dockerfile: Dockerfile-dbx
     ports:
       - '5432:5432'
 #    volumes:
@@ -19,15 +22,15 @@ services:
       - "traefik.frontend.rule=Host:postgres.docker.localhost"
     networks:
       - proxynet
-  dbtest:
-    build:
-      target: main
-      context: .
-      dockerfile: Dockerfile-dbx
-    ports:
-    - '15432:5432'
-    labels:
-    - "traefik.frontend.rule=Host:dbtest.docker.localhost"
+#  dbtest:
+#    build:
+#      target: main
+#      context: .
+#      dockerfile: Dockerfile-dbx
+#    ports:
+#    - '15432:5432'
+#    labels:
+#    - "traefik.frontend.rule=Host:dbtest.docker.localhost"
 #  traefik:
 #    image: traefik
 #    command: --api --docker
