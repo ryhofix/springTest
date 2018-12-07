@@ -9,7 +9,6 @@ services:
       - "traefik.frontend.rule=Host:spring.docker.localhost"
     networks:
       - proxynet
-
   postgres:
     build:
       target: main
@@ -17,40 +16,15 @@ services:
       dockerfile: Dockerfile-dbx
     ports:
       - '5432:5432'
-#    volumes:
-#      - 'db:/var/lib/postgresql/data'
     labels:
       - "traefik.frontend.rule=Host:postgres.docker.localhost"
     networks:
       - proxynet
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:5432"]
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 30s
       timeout: 10s
       retries: 5
-#  dbtest:
-#    build:
-#      target: main
-#      context: .
-#      dockerfile: Dockerfile-dbx
-#    ports:
-#    - '15432:5432'
-#    labels:
-#    - "traefik.frontend.rule=Host:dbtest.docker.localhost"
-#  traefik:
-#    image: traefik
-#    command: --api --docker
-#    ports:
-#    - "180:80"
-#    - "1443:443"
-#    volumes:
-#    - /var/run/docker.sock:/var/run/docker.sock
-#    labels:
-#    - "traefik.port=8080"
-#    - "traefik.frontend.rule=Host:traefik.jen.local"
-#volumes:
-#  db:
-#    external: true
 networks:
   proxynet:
     name: scripts_default
