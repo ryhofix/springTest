@@ -1,6 +1,6 @@
 node {
     def mvnHome
-    stage('Preparation') { // for display purposes xcvc
+    stage('Preparation') { // for display purposes xcvcbb
         // Get some code from a GitHub repository
         git branch: 'develop', url: 'https://github.com/ryhofix/springTest.git'
         // Get the Maven tool.
