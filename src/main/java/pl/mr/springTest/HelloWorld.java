@@ -32,10 +32,10 @@ public class HelloWorld {
     }
 
     @RequestMapping(value = "/search/{surname}", method = RequestMethod.GET)
-    public String getCustomers(@PathVariable("surname") String name) {
+    public String getCustomers(@PathVariable("surname") String surname) {
         return StringUtils.join(
                 customerRepository
-                        .findBySurname(name)
+                        .findBySurname(surname)
                         .stream()
                         .map(Customer::getName)
                         .collect(Collectors.toList()),
